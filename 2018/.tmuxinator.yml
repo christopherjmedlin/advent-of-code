@@ -1,0 +1,9 @@
+name: aoc-2018
+
+windows:
+  - editor:
+      panes:
+        - sleep 1 && $EDITOR
+        - htop
+        - 
+      layout: main-vertical
