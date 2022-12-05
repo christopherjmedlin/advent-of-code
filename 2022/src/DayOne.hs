@@ -13,7 +13,7 @@ nums = ((fmap.fmap) read)
 sums = fmap sum
 maxls = foldr max 0
 
-p1 = (maxls.sums.nums.split)
+p1 = (show.maxls.sums.nums.split)
 
 top3 :: [Integer] -> (Integer, Integer, Integer)
 top3 ls = (one, two, three)
@@ -23,7 +23,7 @@ top3 ls = (one, two, three)
 
 sumTup (x,y,z) = x + y + z
 
-p2 = (sumTup.top3.sums.nums.split)
+p2 = (show.sumTup.top3.sums.nums.split)
 
-day_one :: [String] -> (Integer, Integer)
+day_one :: [String] -> (String, String)
 day_one ls = (p1 ls, p2 ls)

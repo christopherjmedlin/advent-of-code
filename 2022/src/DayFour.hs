@@ -32,8 +32,8 @@ p' (p1, p2) = (overlap p1 p2) || (overlap p2 p1)
 
 pairs = fmap r
 
-p1 = fromIntegral.length.(filter p).pairs
-p2 = fromIntegral.length.(filter p').pairs
+p1 = show.length.(filter p).pairs
+p2 = show.length.(filter p').pairs
 
-day_four :: [String] -> (Integer, Integer)
+day_four :: [String] -> (String, String)
 day_four ls = (p1 ls, p2 ls)

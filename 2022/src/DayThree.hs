@@ -24,8 +24,8 @@ threes ls = ((take 3) ls) : (threes ((drop 3) ls))
 inAllThree :: [String] -> Char
 inAllThree [ls1, ls2, ls3] = head (filter (\x -> ((inList ls2 x) && (inList ls3 x))) ls1)
 
-p2 = fromIntegral . sum . ((fmap (val.inAllThree)).threes)
-p1 = fromIntegral . sum . (fmap (val.common.compartments))
+p2 = show . sum . ((fmap (val.inAllThree)).threes)
+p1 = show . sum . (fmap (val.common.compartments))
 
-day_three :: [String] -> (Integer, Integer)
+day_three :: [String] -> (String, String)
 day_three ls = (p1 ls, p2 ls)

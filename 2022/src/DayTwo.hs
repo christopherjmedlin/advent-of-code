@@ -72,5 +72,5 @@ p1 ls = execState (sequence_ (fmap lineToState ls)) 0
 p2 :: [String] -> Integer
 p2 ls = execState (sequence_ (fmap lineToState' ls)) 0
 
-day_two :: [String] -> (Integer, Integer)
-day_two x = (p1 x, p2 x)
+day_two :: [String] -> (String, String)
+day_two x = (show (p1 x), show (p2 x))

@@ -12,5 +12,5 @@ main = do
     let f = (getDay.read.head) args
     s <- readFile ("./input/day" ++ head args)
     let (p1, p2) = f (lines s)
-    putStrLn $ "Part 1: " ++ (show p1)
-    putStrLn $ "Part 2: " ++ (show p2)
+    putStrLn $ "Part 1: " ++ p1
+    putStrLn $ "Part 2: " ++ p2
