@@ -28,6 +28,7 @@ library
       DayFive
       DayFour
       DayOne
+      DaySeven
       DaySix
       DayThree
       DayTwo
@@ -42,6 +43,7 @@ library
     , containers
     , mtl
     , parsec
+    , rosezipper
   default-language: Haskell2010
 
 executable aoc2022-exe
@@ -57,6 +59,7 @@ executable aoc2022-exe
     , containers
     , mtl
     , parsec
+    , rosezipper
   default-language: Haskell2010
 
 test-suite aoc2022-test
@@ -73,4 +76,5 @@ test-suite aoc2022-test
     , containers
     , mtl
     , parsec
+    , rosezipper
   default-language: Haskell2010
