@@ -9,6 +9,7 @@ import DayFour
 import DayFive
 import DaySix
 import DaySeven
+import DayEight
 
 getDay :: Integer -> ([String] -> (String, String))
 getDay 1 = day_one
@@ -18,3 +19,4 @@ getDay 4 = day_four
 getDay 5 = day_five
 getDay 6 = day_six
 getDay 7 = day_seven
+getDay 8 = day_eight
