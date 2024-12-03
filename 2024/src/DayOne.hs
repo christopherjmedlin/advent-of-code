@@ -5,6 +5,10 @@ import Data.List
 import Data.Bifunctor
 import Text.Parsec
 
+p2Ls :: [Integer] -> [Integer] -> Integer
+p2Ls [] rls = 0
+p2Ls (i : ls) rls = (i * toInteger ((length . filter (== i)) rls)) + p2Ls ls rls
+
 distance :: (Integer, Integer) -> Integer
 distance (i1, i2) = abs $ i2 - i1
 
@@ -39,5 +43,9 @@ parseDay1 = fmap parseLine
 p1 :: [String] -> String
 p1 = show . p1Ints . parseDay1
 
+p2 :: [String] -> String
+p2 ls = show (uncurry p2Ls input)
+    where input = split (parseDay1 ls)
+
 dayOne :: [String] -> (String, String)
-dayOne ls = (p1 ls, "")
+dayOne ls = (p1 ls, p2 ls)
