@@ -1,14 +1,10 @@
 {-# LANGUAGE TupleSections #-}
 
 module DayFour where
-import Data.Array
-import Data.Bifunctor
+import Data.Array ( (!), bounds, indices, Array )
+import Data.Bifunctor ( Bifunctor(bimap) )
+import Util
 
-matrix :: [[a]] -> Array (Int, Int) a
-matrix ls = listArray ((0, 0), (l1 -1, l2 -1))  (concat ls)
-    where
-        l1 = length ls
-        l2 = length (head ls)
 
 -- walks n steps in the given direction from the starting position
 -- a step means applying the given increment once
@@ -28,16 +24,16 @@ allPossibleWalks :: Array (Int, Int) a -> Integer -> [[(Int, Int)]]
 allPossibleWalks arr n = indices arr >>= flip walkAllDirections n
 
 allPossibleWalksBounded :: Array (Int, Int) a -> Integer -> [[(Int, Int)]]
-allPossibleWalksBounded arr n = filter (`inBounds` bounds arr) <$> allPossibleWalks arr n
+allPossibleWalksBounded arr n = filter (`DayFour.inBounds` bounds arr) <$> allPossibleWalks arr n
 
 getStrings :: Array (Int, Int) Char -> [[(Int, Int)]] -> [String]
 getStrings arr = fmap (fmap (arr !))
 
 cross1 :: Array (Int, Int) Char -> (Int, Int) -> String
-cross1 arr (i1, i2) = (arr !) <$> filter (`inBounds` bounds arr) [(i1-1, i2-1), (i1, i2), (i1+1, i2+1)]
+cross1 arr (i1, i2) = (arr !) <$> filter (`DayFour.inBounds` bounds arr) [(i1-1, i2-1), (i1, i2), (i1+1, i2+1)]
 
 cross2 :: Array (Int, Int) Char -> (Int, Int) -> String
-cross2 arr (i1, i2) = (arr !) <$> filter (`inBounds` bounds arr) [(i1-1, i2+1), (i1, i2), (i1+1, i2-1)]
+cross2 arr (i1, i2) = (arr !) <$> filter (`DayFour.inBounds` bounds arr) [(i1-1, i2+1), (i1, i2), (i1+1, i2-1)]
 
 cross :: Array (Int, Int) Char -> (Int, Int) -> (String, String)
 cross arr (i1, i2) = bimap (cross1 arr) (cross2 arr) ((i1, i2), (i1, i2))
