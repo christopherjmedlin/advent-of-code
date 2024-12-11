@@ -1,4 +1,4 @@
-module Util (matrix, inBounds, lengthGreaterThan1) where
+module Util (matrix, inBounds, inBoundsInteger, lengthGreaterThan1) where
 import Data.Array (Array)
 import Data.Array.Base (listArray)
 
@@ -10,6 +10,9 @@ matrix ls = listArray ((0, 0), (l1 -1, l2 -1))  (concat ls)
 
 inBounds :: (Int, Int) -> ((Int, Int), (Int, Int)) -> Bool
 inBounds (x1, x2) ((i1, i2), (j1, j2)) = x1 >= i1 && x1 <= j1 && x2 >= i2 && x2 <= j2
+
+inBoundsInteger :: (Integer, Integer) -> ((Integer, Integer), (Integer, Integer)) -> Bool
+inBoundsInteger (x1, x2) ((i1, i2), (j1, j2)) = x1 >= i1 && x1 <= j1 && x2 >= i2 && x2 <= j2
 
 lengthGreaterThan1 :: [Integer] -> Bool
 lengthGreaterThan1 [] = False
